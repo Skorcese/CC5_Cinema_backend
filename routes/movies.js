@@ -21,14 +21,14 @@ router.post('/', cors(), async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error);
 
-  const { Title, Year, Genre, Description, ImageUrl } = req.body;
+  const { title, year, genre, description, imageUrl } = req.body;
 
   let movie = new Movie({
-    Title,
-    Year,
-    Genre,
-    Description,
-    ImageUrl
+    title,
+    year,
+    genre,
+    description,
+    imageUrl
   });
 
   movie = await movie.save();

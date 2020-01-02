@@ -5,27 +5,26 @@ const mongoose = require('mongoose');
 const Movie = mongoose.model(
   'Movie',
   new mongoose.Schema({
-    Title: {
+    title: {
       type: String,
       required: true,
       minlength: 1,
       maxlength: 255
     },
-    Year: {
+    year: {
       type: Number,
       required: true
     },
-    Genre: {
+    genre: {
       type: String,
       minlength: 1,
       maxlength: 128
     },
-    Description: {
+    description: {
       type: String,
-      minlength: 8,
-      maxlength: 1024
+      minlength: 8
     },
-    ImageUrl: {
+    imageUrl: {
       type: String,
       minlength: 1
     }
@@ -35,18 +34,17 @@ const Movie = mongoose.model(
 /****** JOI validation ******/
 function validateMovie(movie) {
   const schema = {
-    Title: Joi.string()
+    title: Joi.string()
       .min(1)
       .max(255)
       .required(),
-    Year: Joi.number().required(),
-    Genre: Joi.string()
+    year: Joi.number().required(),
+    genre: Joi.string()
       .min(1)
       .max(128),
-    Description: Joi.string()
-      .min(8)
-      .max(1024),
-    ImageUrl: Joi.string().min(1)
+    description: Joi.string()
+      .min(8),
+    imageUrl: Joi.string().min(1)
   };
 
   return Joi.validate(movie, schema);
