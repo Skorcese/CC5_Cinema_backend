@@ -7,17 +7,28 @@ const handleError = require('../assistive_functions/handleError');
 const handleSuccess = require('../assistive_functions/handleSuccess');
 
 /****** ROUTES HANDLERS ******/
+router.get('/', cors(), async (req, res) => {
+  try {
+    const movies = await Movie.find();
+    res.status(200).send(JSON.stringify(movies));
+  } catch (err) {
+    console.log(err.message);
+    res.status(404).end();
+  }
+});
+
 router.post('/', cors(), async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error);
 
-  const { Title, Year, Genre, Description } = req.body;
+  const { Title, Year, Genre, Description, ImageUrl } = req.body;
 
   let movie = new Movie({
     Title,
     Year,
     Genre,
-    Description
+    Description,
+    ImageUrl
   });
 
   movie = await movie.save();

@@ -24,6 +24,10 @@ const Movie = mongoose.model(
       type: String,
       minlength: 8,
       maxlength: 1024
+    },
+    ImageUrl: {
+      type: String,
+      minlength: 1
     }
   })
 );
@@ -41,7 +45,8 @@ function validateMovie(movie) {
       .max(128),
     Description: Joi.string()
       .min(8)
-      .max(1024)
+      .max(1024),
+    ImageUrl: Joi.string().min(1)
   };
 
   return Joi.validate(movie, schema);
