@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Room = mongoose.model(
   'Room',
   new mongoose.Schema({
-    Name: {
+    name: {
       type: String,
       required: true,
       minlength: 1,
@@ -17,7 +17,7 @@ const Room = mongoose.model(
 /****** JOI validation ******/
 function validateRoom(room) {
   const schema = {
-    Name: Joi.string()
+    name: Joi.string()
       .min(1)
       .max(255)
       .required()

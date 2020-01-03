@@ -6,16 +6,16 @@ const mongoose = require('mongoose');
 const Seat = mongoose.model(
   'Seat',
   new mongoose.Schema({
-    Room_id: {
+    room_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Room',
       required: true
     },
-    Row: {
+    row: {
       type: Number,
       required: true
     },
-    SeatNumber: {
+    seatNumber: {
       type: Number,
       required: true
     }
@@ -25,9 +25,9 @@ const Seat = mongoose.model(
 /****** JOI validation ******/
 function validateSeat(seat) {
   const schema = {
-    Room_id: Joi.objectId().required(),
-    Row: Joi.number().required(),
-    SeatNumber: Joi.number().required()
+    room_id: Joi.objectId().required(),
+    row: Joi.number().required(),
+    seatNumber: Joi.number().required()
   };
 
   return Joi.validate(seat, schema);

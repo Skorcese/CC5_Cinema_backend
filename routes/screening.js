@@ -11,12 +11,12 @@ router.post('/', cors(), async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error);
 
-  const { Movie_id, Room_id, Time } = req.body;
+  const { movie_id, room_id, time } = req.body;
 
   let screening = new Screening({
-    Movie_id,
-    Room_id,
-    Time
+    movie_id,
+    room_id,
+    time
   });
 
   screening = await screening.save();

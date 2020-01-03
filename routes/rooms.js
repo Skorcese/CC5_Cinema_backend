@@ -11,10 +11,10 @@ router.post('/', cors(), async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error);
 
-  const { Name } = req.body;
+  const { name } = req.body;
 
   let room = new Room({
-    Name
+    name
   });
 
   room = await room.save();

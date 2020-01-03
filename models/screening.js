@@ -6,17 +6,17 @@ const mongoose = require('mongoose');
 const Screening = mongoose.model(
   'Screening',
   new mongoose.Schema({
-    Movie_id: {
+    movie_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Movie',
       required: true
     },
-    Room_id: {
+    room_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Room',
       required: true
     },
-    Time: {
+    time: {
       type: Date,
       required: true
     }
@@ -26,9 +26,9 @@ const Screening = mongoose.model(
 /****** JOI validation ******/
 function validateScreening(screening) {
   const schema = {
-    Movie_id: Joi.objectId().required(),
-    Room_id: Joi.objectId().required(),
-    Time: Joi.date().required()
+    movie_id: Joi.objectId().required(),
+    room_id: Joi.objectId().required(),
+    time: Joi.date().required()
   };
 
   return Joi.validate(screening, schema);

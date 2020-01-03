@@ -9,7 +9,7 @@ const handleSuccess = require('../assistive_functions/handleSuccess');
 /****** ROUTES HANDLERS ******/
 router.get('/', cors(), async (req, res) => {
   try {
-    const seats = await Seat.find().populate('Room_id', 'Name -_id');
+    const seats = await Seat.find().populate('room_id', 'name -_id');
     res.status(200).send(JSON.stringify(seats));
   } catch (err) {
     console.log(err.message);
@@ -21,12 +21,12 @@ router.post('/', cors(), async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error);
 
-  const { Room_id, Row, SeatNumber } = req.body;
+  const { room_id, row, seatNumber } = req.body;
 
   let seat = new Seat({
-    Room_id,
-    Row,
-    SeatNumber
+    room_id,
+    row,
+    seatNumber
   });
 
   seat = await seat.save();
