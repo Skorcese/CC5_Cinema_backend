@@ -17,6 +17,21 @@ router.get('/', cors(), async (req, res) => {
   }
 });
 
+router.get('/:row/:seatNumber', cors(), async (req, res) => {
+  try {
+    const row = req.params.row;
+    const seatNumber = req.params.seatNumber;
+    console.log(row);
+    console.log(seatNumber);
+    let seat = await Seat.find({ row, seatNumber });
+
+    res.status(200).send(JSON.stringify(seat));
+  } catch (err) {
+    console.log(err.message);
+    res.status(404).end();
+  }
+});
+
 router.post('/', cors(), async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error);

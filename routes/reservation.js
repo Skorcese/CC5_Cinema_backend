@@ -7,22 +7,40 @@ const handleError = require('../assistive_functions/handleError');
 const handleSuccess = require('../assistive_functions/handleSuccess');
 
 /****** ROUTES HANDLERS ******/
-router.get('/:user_id', cors(), async (req, res) => {
+router.get('/:user_id/:screening_id', cors(), async (req, res) => {
   try {
-    const user_id = req.params.user_id;
-    const reservations = await Reservation.find({ user_id })
-      .populate({
-        path: 'seat_id',
-        populate: { path: 'room_id' }
-      })
-      .populate({
-        path: 'screening_id',
-        populate: { path: 'movie_id' }
-      })
-      .populate({
-        path: 'screening_id',
-        populate: { path: 'room_id' }
-      });
+    const { user_id, screening_id } = req.params;
+    let reservations;
+
+    if (user_id !== 'default') {
+      reservations = await Reservation.find({ user_id })
+        .populate({
+          path: 'seat_id',
+          populate: { path: 'room_id' }
+        })
+        .populate({
+          path: 'screening_id',
+          populate: { path: 'movie_id' }
+        })
+        .populate({
+          path: 'screening_id',
+          populate: { path: 'room_id' }
+        });
+    } else {
+      reservations = await Reservation.find({ screening_id })
+        .populate({
+          path: 'seat_id',
+          populate: { path: 'room_id' }
+        })
+        .populate({
+          path: 'screening_id',
+          populate: { path: 'movie_id' }
+        })
+        .populate({
+          path: 'screening_id',
+          populate: { path: 'room_id' }
+        });
+    }
 
     res.status(200).send(JSON.stringify(reservations));
   } catch (err) {

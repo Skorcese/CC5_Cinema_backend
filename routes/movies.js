@@ -17,6 +17,17 @@ router.get('/', cors(), async (req, res) => {
   }
 });
 
+router.get('/:id', cors(), async (req, res) => {
+  try {
+    const id = req.params.id;
+    const movie = await Movie.findById(id);
+    res.status(200).send(JSON.stringify(movie));
+  } catch (err) {
+    console.log(err.message);
+    res.status(404).end();
+  }
+});
+
 router.post('/', cors(), async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error);
