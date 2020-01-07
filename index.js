@@ -9,6 +9,7 @@ const rooms = require('./routes/rooms');
 const seats = require('./routes/seats');
 const screening = require('./routes/screening');
 const reservation = require('./routes/reservation');
+const auth = require('./routes/auth');
 
 //routers
 
@@ -29,6 +30,7 @@ app.use('/api/rooms', rooms);
 app.use('/api/seats', seats);
 app.use('/api/screening', screening);
 app.use('/api/reservation', reservation);
+app.use('/api/auth', auth);
 
 // require('./startup/prod')(app);
 
