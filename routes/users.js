@@ -39,15 +39,20 @@ router.post('/', cors(), async (req, res) => {
     console.log('add-user');
     const { error } = validate(req.body);
     if (error)
+    {
+      console.log('45 --->', error, req.body)
       return res
         .status(400)
         .send(JSON.stringify({ msg: error.details[0].message }));
+
+    }
 
     let user = await User.findOne({ email: req.body.email });
     if (user)
       return res
         .status(400)
         .send(JSON.stringify({ msg: 'Użytkownik już istnieje.' }));
+
 
     user = new User({
       name: req.body.name,
@@ -59,12 +64,14 @@ router.post('/', cors(), async (req, res) => {
     user.password = await bcrypt.hash(user.password, salt);
 
     await user.save();
-    const token = user.generateAuthToken();
+    const tokenfff = user.generateAuthToken();
     res
       .status(200)
       .set('Access-Control-Allow-Origin', '*')
       .header('x-auth-token', token)
       .send(JSON.stringify(user));
+    
+    console.log(res)
   } catch (err) {
     console.log(err.message);
     res.status(404).send(JSON.stringify({ msg: error.details[0].message }));
