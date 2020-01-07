@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5e0b525ac65dc53970c15101"},"room_id":{"$oid":"5e0b4db2047831309cddd415"},"row":{"$numberInt":"1"},"seatNumber":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5e0b7970b2ab90272c564113"},"room_id":{"$oid":"5e0b4db2047831309cddd415"},"row":{"$numberInt":"1"},"seatNumber":{"$numberInt":"2"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5e0b7976b2ab90272c564114"},"room_id":{"$oid":"5e0b4db2047831309cddd415"},"row":{"$numberInt":"1"},"seatNumber":{"$numberInt":"3"},"__v":{"$numberInt":"0"}}
