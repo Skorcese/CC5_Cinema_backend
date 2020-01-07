@@ -1,6 +1,6 @@
 const { Movie, validate } = require('../models/movies');
 const express = require('express');
-// const auth = require('../middleware/auth');
+// const auth = require('./auth');
 const router = express.Router();
 const cors = require('cors');
 const handleError = require('../assistive_functions/handleError');
