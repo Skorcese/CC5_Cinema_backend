@@ -1,13 +1,13 @@
 const { Reservation, validate } = require('../models/reservation');
 const express = require('express');
-const auth = require('./auth');
+// const auth = require('./auth');
 const router = express.Router();
 const cors = require('cors');
 const handleError = require('../assistive_functions/handleError');
 const handleSuccess = require('../assistive_functions/handleSuccess');
 
 /****** ROUTES HANDLERS ******/
-router.get('/:user_id/:screening_id', cors(), auth, async (req, res) => {
+router.get('/:user_id/:screening_id', cors(), async (req, res) => {
   try {
     const { user_id, screening_id } = req.params;
     let reservations;
@@ -49,7 +49,7 @@ router.get('/:user_id/:screening_id', cors(), auth, async (req, res) => {
   }
 });
 
-router.post('/', cors(), auth, async (req, res) => {
+router.post('/', cors(), async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error);
 
