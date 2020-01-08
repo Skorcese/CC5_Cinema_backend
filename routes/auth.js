@@ -7,20 +7,29 @@ const cors = require('cors');
 const { User } = require('../models/users');
 const router = express.Router();
 
-router.post('/', cors, async (req,res) => {
+router.post('/', cors(), async (req,res) => {
+    console.log('auth')
+
     const { error } = validate(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
+    console.log('15 --- ', error)
+    if(error)
+        return res.status(400).send(error.details[0].message);
 
     let user = await User.findOne({ email: req.body.email });
-    if(!user) return res.status(400).send('Invalid email or password.');
+    console.log('19 --- ', user)
+    if(!user)
+        return res.status(400).send('Invalid email or password.');
+    
 
     const validPassword = await bcrypt.compare(req.body.password, user.password);
-    if(!validPassword) return res.status(400).send('Invalid email or password.')
+    console.log('27 --- ', validPassword)
+    if(!validPassword)
+        return res.status(400).send('Invalid email or password.')
 
     const token = jwt.sign({ _id: user._id }, 'jwtPrivateKey');
     console.log(token)
 
-    res.send(token)
+    res.send([token, user._id, user.name, user.surname])
 })
 
 function validate(req){
