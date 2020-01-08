@@ -1,4 +1,4 @@
 {
-  "jwtPrivateKey": "lol",
-  "db": "mongodb://localhost/coders"
+  "jwtPrivateKey": "cc5_jwtPrivateKey",
+  "db": "cc5_db"
 }

@@ -13,6 +13,11 @@ const auth = require('./routes/auth');
 
 //routers
 
+if (!config.get('jwtPrivateKey')) {
+  console.log('ERROR - jwtPrivateKey: Klucz prywatny nie został ustawiony');
+  process.exit(1);
+}
+
 mongoose
   .connect('mongodb://localhost/CC5_Cinema', {
     useNewUrlParser: true,
@@ -33,7 +38,7 @@ app.use('/api/screening', screening);
 app.use('/api/reservation', reservation);
 app.use('/api/auth', auth);
 
-// require('./startup/prod')(app);
+require('./startup/prod')(app);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
