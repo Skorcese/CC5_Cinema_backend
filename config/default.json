@@ -1,0 +1,4 @@
+{
+  "jwtPrivateKey": "lol",
+  "db": "mongodb://localhost/coders"
+}

@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5e0b568b4b08db1a745cb2c7"},"user_id":{"$oid":"5e0a588e1f912e227c2099cf"},"seat_id":{"$oid":"5e0b525ac65dc53970c15101"},"screening_id":{"$oid":"5e0b54c9475b3f35c48c861c"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5e0b7a34b2ab90272c564117"},"user_id":{"$oid":"5e0a588e1f912e227c2099cf"},"seat_id":{"$oid":"5e0b7970b2ab90272c564113"},"screening_id":{"$oid":"5e0b79d6b2ab90272c564115"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5e0b7a4ab2ab90272c564118"},"user_id":{"$oid":"5e0a588e1f912e227c2099cf"},"seat_id":{"$oid":"5e0b7976b2ab90272c564114"},"screening_id":{"$oid":"5e0b79dfb2ab90272c564116"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5e0ddd1d66ba8818981b8030"},"user_id":{"$oid":"5e0a588e1f912e227c2099cf"},"seat_id":{"$oid":"5e0b7976b2ab90272c564114"},"screening_id":{"$oid":"5e0ddcee66ba8818981b802f"},"__v":{"$numberInt":"0"}}

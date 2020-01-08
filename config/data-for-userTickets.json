@@ -1,0 +1,97 @@
+{
+  "USERS": {
+    "_id": "5e0a588e1f912e227c2099cf",
+    "name": "Kamil",
+    "surname": "Żogło",
+    "email": "kamil@wp.pl",
+    "password": "$2a$10$UL3Thhd1/5203HzNDgu/9OaMXttIxwpq.856.hysSCc5oE5lEE6.6",
+    "__v": 0
+  },
+  "ROOMS": [
+    { "_id": "5e0b4db2047831309cddd415", "name": "10", "__v": 0 },
+    { "_id": "5e12227f941d8c1ff863a5e1", "name": "5", "__v": 0 }
+  ],
+  "SEATS": [
+    {
+      "_id": "5e0b525ac65dc53970c15101",
+      "room_id": "5e0b4db2047831309cddd415",
+      "row": 1,
+      "seatNumber": 1,
+      "__v": 0
+    },
+    {
+      "_id": "5e0b7970b2ab90272c564113",
+      "room_id": "5e0b4db2047831309cddd415",
+      "row": 1,
+      "seatNumber": 2,
+      "__v": 0
+    },
+    {
+      "_id": "5e0b7976b2ab90272c564114",
+      "room_id": "5e0b4db2047831309cddd415",
+      "row": 1,
+      "seatNumber": 3,
+      "__v": 0
+    }
+  ],
+  "SCREENINGS": [
+    {
+      "_id": "5e0b54c9475b3f35c48c861c",
+      "movie_id": "5e0f6f711176281fe8dcc9a0",
+      "room_id": "5e0b4db2047831309cddd415",
+      "time": "5490-12-21T02:26:40.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "5e0b79d6b2ab90272c564115",
+      "movie_id": "5e0f6f7c1176281fe8dcc9a1",
+      "room_id": "5e0b4db2047831309cddd415",
+      "time": "5490-12-21T02:26:40.001Z",
+      "__v": 0
+    },
+    {
+      "_id": "5e0b79dfb2ab90272c564116",
+      "movie_id": "5e0f6f891176281fe8dcc9a3",
+      "room_id": "5e0b4db2047831309cddd415",
+      "time": "5490-12-21T02:26:40.001Z",
+      "__v": 0
+    },
+    {
+      "_id": "5e0ddcee66ba8818981b802f",
+      "movie_id": "5e0f6f9d1176281fe8dcc9a6",
+      "room_id": "5e0b4db2047831309cddd415",
+      "time": "5490-12-21T02:26:40.001Z",
+      "__v": 0
+    }
+  ],
+  "RESERVATIONS": [
+    {
+      "_id": "5e0b568b4b08db1a745cb2c7",
+      "user_id": "5e0a588e1f912e227c2099cf",
+      "seat_id": "5e0b525ac65dc53970c15101",
+      "screening_id": "5e0b54c9475b3f35c48c861c",
+      "__v": 0
+    },
+    {
+      "_id": "5e0b7a34b2ab90272c564117",
+      "user_id": "5e0a588e1f912e227c2099cf",
+      "seat_id": "5e0b7970b2ab90272c564113",
+      "screening_id": "5e0b79d6b2ab90272c564115",
+      "__v": 0
+    },
+    {
+      "_id": "5e0b7a4ab2ab90272c564118",
+      "user_id": "5e0a588e1f912e227c2099cf",
+      "seat_id": "5e0b7976b2ab90272c564114",
+      "screening_id": "5e0b79dfb2ab90272c564116",
+      "__v": 0
+    },
+    {
+      "_id": "5e0ddd1d66ba8818981b8030",
+      "user_id": "5e0a588e1f912e227c2099cf",
+      "seat_id": "5e0b7976b2ab90272c564114",
+      "screening_id": "5e0ddcee66ba8818981b802f",
+      "__v": 0
+    }
+  ]
+}
