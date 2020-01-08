@@ -19,7 +19,7 @@ if (!config.get('jwtPrivateKey')) {
 }
 
 mongoose
-  .connect('mongodb://localhost/CC5_Cinema', {
+  .connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0-ule6z.mongodb.net/${process.env.MONGO_DEF_DB}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
