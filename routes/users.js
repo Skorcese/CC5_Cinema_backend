@@ -34,6 +34,21 @@ router.get('/', async (req, res) => {
   res.status(200).end('wyświetlono');
 });
 
+router.get('/:id', cors(), async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    res
+      .status(200)
+      .set('Access-Control-Allow-Origin', '*')
+      .send(JSON.stringify(user));
+  } catch (err) {
+    console.log(err.message);
+    res.status(404).end();
+  }
+
+  res.status(200).end('wyświetlono');
+});
+
 router.post('/', cors(), async (req, res) => {
   try {
     console.log('add-user');

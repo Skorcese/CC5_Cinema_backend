@@ -16,7 +16,8 @@ const auth = require('./routes/auth');
 mongoose
   .connect('mongodb://localhost/CC5_Cinema', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
   })
   .then(() => console.log('Connected to MongoDB...'))
   .catch(err => console.error('Could not connect to MongoDB...', err));
